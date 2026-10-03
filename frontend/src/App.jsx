@@ -6,7 +6,7 @@ import {auth ,googleProvider } from '../firebase.js'
 function App() {
   const handleLogin =async()=>{
     const data =await signInWithPopup(auth ,googleProvider)
-    console.log(data)
+    const token=await data.user.getIdToken()
   }
   return (
     <div>
