@@ -1,10 +1,10 @@
 import { app } from "../config/firebase.js";
-import {getAuth} from "firebase-admin/auth"
+import { getAuth } from "firebase-admin/auth";
 
 export const login =async(req ,res) =>{
     try {
         const {token} =req.body
-        const decoded =app.getAuth(app).verifyIdToken(token)
+        const decoded =await getAuth(app).verifyIdToken(token)
         console.log(decoded)
         return res.json({decoded})      
     } catch (error) {
